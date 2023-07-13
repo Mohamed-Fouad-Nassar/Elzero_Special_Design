@@ -1,0 +1,19 @@
+// import variables styles
+@use "./variables" as *;
+
+footer {
+  background-color: var(--thirdBackgroundColor, #333);
+  // background-color: #333;
+  padding: 20px;
+  p {
+    color: var(--darkWhiteColor, #eee);
+    // color: #eee;
+    text-align: center;
+    margin: 0 {
+      bottom: 10px;
+    }
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}

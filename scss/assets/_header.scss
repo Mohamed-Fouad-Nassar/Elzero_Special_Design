@@ -1,0 +1,164 @@
+// import variables styles
+@use "./variables" as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  &.scroll {
+    background-color: #000000b0;
+  }
+  .container {
+    padding: 7px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: 767px) {
+    }
+    .logo {
+      a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        &:hover {
+          .text {
+            span {
+              color: var(--mainColor);
+              // color: #ff9800;
+            }
+          }
+        }
+        .image {
+          width: 50px;
+          img {
+            max-width: 100%;
+          }
+        }
+        .text {
+          span {
+            color: var(--mainTextColor, #fff);
+            // color: #fff;
+          }
+        }
+      }
+    }
+    .bars {
+      display: none;
+      @media (max-width: 767px) {
+        display: block;
+        cursor: pointer;
+        &:hover {
+          .f-icon {
+            color: var(--mainColor);
+            // color: #ff9800;
+          }
+        }
+        .f-icon {
+          font-size: 1.4rem;
+          color: var(--mainTextColor, #fff);
+          // color: #fff;
+        }
+      }
+    }
+    nav {
+      flex: 1;
+      z-index: 3;
+      @media (max-width: 767px) {
+        height: 100vh;
+        width: 200px;
+        position: absolute;
+        top: 0;
+        right: -200px;
+        background-color: var(--mainBackgroundColor, #fff);
+        // background-color: #fff;
+        &.active {
+          right: 0;
+          + .nav-overlay {
+            display: block;
+          }
+        }
+      }
+      .cancel {
+        display: none;
+        @media (max-width: 767px) {
+          display: block;
+          cursor: pointer;
+          &:hover {
+            .f-icon {
+              color: var(--mainColor);
+              // color: #ff9800;
+            }
+          }
+          .f-icon {
+            color: var(--blackColor, #212529);
+            // color: #212529;
+            font-size: 1.3rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
+        }
+      }
+      ul {
+        gap: 20px;
+        justify-content: flex-end;
+        @media (max-width: 767px) {
+          padding: 10px {
+            top: 60px;
+          }
+          gap: 0;
+          width: 100%;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+        li {
+          @media (max-width: 767px) {
+            width: 100%;
+            border-bottom: 1px solid var(--secBackgroundColor, #eee);
+            // border-bottom: 1px solid #eee;
+            &:last-of-type {
+              border-bottom: none;
+            }
+          }
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: fit-content;
+            color: var(--mainTextColor, #fff);
+            // color: #fff;
+            @media (max-width: 767px) {
+              justify-content: flex-start;
+              width: 100%;
+              color: var(--blackColor, #212529);
+              // color: #212529;
+              &:hover {
+                padding-left: 20px;
+              }
+            }
+            &:hover {
+              color: var(--mainColor);
+              // color: #ff9800;
+            }
+          }
+        }
+      }
+    }
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--whiteTransparentColor, #eeeeeea1);
+      // background-color: #eeeeeea1;
+      z-index: 0;
+      display: none;
+    }
+  }
+}

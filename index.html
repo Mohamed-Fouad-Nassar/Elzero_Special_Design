@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font open sans link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontAwesome css link -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- fav-icon logo image -->
+    <link
+      rel="shortcut icon"
+      href="./data/images/logo.png"
+      type="image/x-icon"
+    />
+    <!-- link master css -->
+    <link rel="stylesheet" href="./css/master.css" />
+    <!-- website title -->
+    <title>Special Design</title>
+  </head>
+  <body id="top">
+    <!-- start header -->
+    <header>
+      <div class="container">
+        <section class="logo">
+          <a href="#top">
+            <div class="image">
+              <img src="./data/images/logo.png" alt="logo-image" />
+            </div>
+            <div class="text">
+              <span>special design</span>
+            </div>
+          </a>
+        </section>
+        <section class="bars" id="navShowBtn">
+          <i class="f-icon fa-solid fa-bars"></i>
+        </section>
+        <nav>
+          <div class="cancel" id="navHideBtn">
+            <i class="f-icon fa-solid fa-xmark"></i>
+          </div>
+          <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#gallery">gallery</a></li>
+            <li><a href="#timeline">timeline</a></li>
+            <li><a href="#features">features</a></li>
+            <li><a href="#testimonials">testimonials</a></li>
+          </ul>
+        </nav>
+        <div class="nav-overlay"></div>
+      </div>
+    </header>
+    <!-- end header -->
+    <!-- start aside -->
+    <section class="showBtn" id="sideShowHideBtn">
+      <i class="f-icon fa-solid fa-gear"></i>
+    </section>
+    <aside>
+      <section class="colors-setting">
+        <h3>colors</h3>
+        <ul>
+          <li data-color="#ff9800"></li>
+          <li data-color="#e91e63"></li>
+          <li data-color="#009688"></li>
+          <li data-color="#03a9f4"></li>
+          <li data-color="#4caf50"></li>
+        </ul>
+      </section>
+      <section class="theme-setting">
+        <h3>theme</h3>
+        <ul>
+          <li data-theme="light">light</li>
+          <li data-theme="dark">dark</li>
+        </ul>
+      </section>
+      <section class="backgrounds-setting">
+        <h3>random backgrounds</h3>
+        <ul>
+          <li data-random="true">yes</li>
+          <li data-random="false">no</li>
+        </ul>
+      </section>
+      <section class="bullets-setting">
+        <h3>show bullets</h3>
+        <ul>
+          <li data-bullets="true">yes</li>
+          <li data-bullets="false">no</li>
+        </ul>
+      </section>
+      <input type="submit" id="resetBtn" value="reset options" class="reset" />
+    </aside>
+    <div class="aside-overlay"></div>
+    <!-- end aside -->
+    <!-- start bullets -->
+    <section class="bullets" id="bullets">
+      <ul>
+        <li>
+          <a data-content="about" href="#about"></a>
+        </li>
+        <li>
+          <a data-content="skills" href="#skills"></a>
+        </li>
+        <li>
+          <a data-content="gallery" href="#gallery"></a>
+        </li>
+        <li>
+          <a data-content="timeline" href="#timeline"></a>
+        </li>
+        <li>
+          <a data-content="features" href="#features"></a>
+        </li>
+        <li>
+          <a data-content="testimonials" href="#testimonials"></a>
+        </li>
+      </ul>
+    </section>
+    <!-- end bullets -->
+    <!-- start main -->
+    <main>
+      <!-- start landing -->
+      <section class="landing" id="landing">
+        <div class="container">
+          <h1>we are <span class="colorChange">creative</span> agency</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
+            quam, quaerat, possimus, ad labore praesentium blanditiis delectus
+            aperiam molestias pariatur commodi unde? Corporis reiciendis
+            adipisci, a ipsa magni porro nesciunt?
+          </p>
+        </div>
+      </section>
+      <!-- end landing -->
+      <!-- start about -->
+      <section class="about" id="about">
+        <div class="container">
+          <section class="left">
+            <h2>about us</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
+              commodi voluptatem ex mollitia aperiam unde velit eos vitae,
+              aliquid nihil soluta id nostrum natus quis! Quasi omnis commodi
+              nulla odio.
+            </p>
+          </section>
+          <section class="right">
+            <img src="./data/images/about-us.png" alt="about-us-image" />
+          </section>
+        </div>
+      </section>
+      <!-- end about -->
+      <!-- start skills -->
+      <section class="skills" id="skills">
+        <div class="container">
+          <div class="sec-head">
+            <h2>our skills</h2>
+          </div>
+          <div class="sec-body">
+            <article class="box">
+              <span>HTML</span>
+              <div class="progress">
+                <span data-progress="90%"></span>
+              </div>
+            </article>
+            <article class="box">
+              <span>CSS</span>
+              <div class="progress">
+                <span data-progress="85%"></span>
+              </div>
+            </article>
+            <article class="box">
+              <span>JS</span>
+              <div class="progress">
+                <span data-progress="79%"></span>
+              </div>
+            </article>
+            <article class="box">
+              <span>Python</span>
+              <div class="progress">
+                <span data-progress="69%"></span>
+              </div>
+            </article>
+            <article class="box">
+              <span>PHP</span>
+              <div class="progress">
+                <span data-progress="19%"></span>
+              </div>
+            </article>
+            <article class="box">
+              <span>MySQL</span>
+              <div class="progress">
+                <span data-progress="49%"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- end skills -->
+      <!-- start gallery -->
+      <section class="gallery" id="gallery">
+        <div class="container">
+          <div class="sec-head">
+            <h2>our gallery</h2>
+          </div>
+          <div class="sec-body">
+            <img src="./data/images/01.jpg" alt="gallery-image" />
+            <img src="./data/images/02.jpg" alt="gallery-image" />
+            <img src="./data/images/03.jpg" alt="gallery-image" />
+            <img src="./data/images/04.jpg" alt="" />
+            <img src="./data/images/05.jpg" alt="gallery-image" />
+            <img src="./data/images/06.png" alt="gallery-image" />
+            <img src="./data/images/07.jpg" alt="" />
+            <img src="./data/images/08.jpg" alt="gallery-image" />
+            <img src="./data/images/09.jpg" alt="gallery-image" />
+            <img src="./data/images/10.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+      <!-- end gallery -->
+      <!-- start timeline -->
+      <section class="timeline" id="timeline">
+        <div class="container">
+          <section class="year">
+            <span>2022</span>
+          </section>
+          <section class="flex-sec">
+            <div class="left active">
+              <h4>Testing Heading</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                corporis veniam inventore. Libero porro beatae, culpa sunt
+                voluptate quod animi obcaecati nobis nam est iure ipsam vitae,
+                temporibus saepe deleniti.
+              </p>
+            </div>
+            <div class="right"></div>
+          </section>
+          <section class="flex-sec">
+            <div class="left"></div>
+            <div class="right active">
+              <h4>Testing Heading</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                corporis veniam inventore. Libero porro beatae, culpa sunt
+                voluptate quod animi obcaecati nobis nam est iure ipsam vitae,
+                temporibus saepe deleniti.
+              </p>
+            </div>
+          </section>
+          <section class="year">
+            <span>2023</span>
+          </section>
+          <section class="flex-sec">
+            <div class="left active">
+              <h4>Testing Heading</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                corporis veniam inventore. Libero porro beatae, culpa sunt
+                voluptate quod animi obcaecati nobis nam est iure ipsam vitae,
+                temporibus saepe deleniti.
+              </p>
+            </div>
+            <div class="right"></div>
+          </section>
+          <section class="flex-sec">
+            <div class="left active">
+              <h4>Testing Heading</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                corporis veniam inventore. Libero porro beatae, culpa sunt
+                voluptate quod animi obcaecati nobis nam est iure ipsam vitae,
+                temporibus saepe deleniti.
+              </p>
+            </div>
+            <div class="right"></div>
+          </section>
+        </div>
+      </section>
+      <!-- end timeline -->
+      <!-- start features -->
+      <section class="features" id="features">
+        <div class="container">
+          <div class="sec-head">
+            <h2>our features</h2>
+          </div>
+          <div class="sec-body">
+            <article class="box">
+              <img src="./data/images/programming.svg" alt="feature-image" />
+              <h3>development</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+            <article class="box">
+              <img src="./data/images/advertising.svg" alt="feature-image" />
+              <h3>marketing</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+            <article class="box">
+              <img src="./data/images/hosting-icon.svg" alt="feature-image" />
+              <h3>hosting</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+            <article class="box">
+              <img src="./data/images/mobile-app.svg" alt="feature-image" />
+              <h3>mobile develope</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+            <article class="box">
+              <img src="./data/images/graphic-design.svg" alt="feature-image" />
+              <h3>cloud and servers</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+            <article class="box">
+              <img src="./data/images/web-design.svg" alt="feature-image" />
+              <h3>seo</h3>
+              <span></span>
+              <p>
+                We are professional marketeers, we will do anything you imagine
+                in no time.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- end features -->
+      <!-- start testimonials -->
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <h2>testimonials</h2>
+          <div class="sec-body">
+            <article class="box">
+              <p>
+                iam very happy with the product its amazing and i recieve it
+                very fast and the price was amazing.
+              </p>
+              <span>published at <span>5/12/2020</span></span>
+              <div class="info">
+                <section class="image">
+                  <img
+                    src="./data/images/user-image-1.webp"
+                    alt="user-profile-image"
+                  />
+                </section>
+                <section class="data">
+                  <h3>ahmed mosaad</h3>
+                  <span>CEO at company</span>
+                </section>
+              </div>
+            </article>
+            <article class="box">
+              <p>
+                iam very happy with the product its amazing and i recieve it
+                very fast and the price was amazing.
+              </p>
+              <span>published at <span>5/12/2020</span></span>
+              <div class="info">
+                <section class="image">
+                  <img
+                    src="./data/images/user-image-2.webp"
+                    alt="user-profile-image"
+                  />
+                </section>
+                <section class="data">
+                  <h3>ahmed mosaad</h3>
+                  <span>CEO at company</span>
+                </section>
+              </div>
+            </article>
+            <article class="box">
+              <p>
+                iam very happy with the product its amazing and i recieve it
+                very fast and the price was amazing.
+              </p>
+              <span>published at <span>5/12/2020</span></span>
+              <div class="info">
+                <section class="image">
+                  <img
+                    src="./data/images/user-image-3.webp"
+                    alt="user-profile-image"
+                  />
+                </section>
+                <section class="data">
+                  <h3>ahmed mosaad</h3>
+                  <span>CEO at company</span>
+                </section>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- end testimonials -->
+      <!-- start contact -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="sec-head">
+            <h2>contact us</h2>
+          </div>
+          <div class="sec-body">
+            <form action="">
+              <section class="left">
+                <div class="field">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="your name"
+                  />
+                  <span>error message</span>
+                </div>
+                <div class="field">
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="your phone"
+                  />
+                  <span>error message</span>
+                </div>
+                <div class="field">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your email"
+                  />
+                  <span>error message</span>
+                </div>
+                <input type="text" name="subject" placeholder="subject" />
+              </section>
+              <section class="right">
+                <textarea name="message" placeholder="your message"></textarea>
+                <input type="submit" value="send" id="submitBtn" />
+              </section>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- end contact -->
+    </main>
+    <!-- end main -->
+    <!-- start go to top button -->
+    <div class="go-up">
+      <a>
+        <i class="f-icon fa-solid fa-caret-up"></i>
+      </a>
+    </div>
+    <!-- end go to top button -->
+    <!-- start image card -->
+    <!-- <div class="pop-up">
+      <div class="overlay"></div>
+      <div class="image-card">
+        <div class="cancel" id="hideCard">
+          <i class="f-icon fa-solid fa-xmark"></i>
+        </div>
+        <span></span>
+        <img src="" alt="" /
+      </div>
+    </div> -->
+    <!-- end image card -->
+    <!-- start footer -->
+    <footer>
+      <p>created with ❤️ by osama elzero</p>
+      <p>coded by mohamed f. nassar</p>
+    </footer>
+    <!-- end footer -->
+    <!-- start main script -->
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/master.js"></script>
+  </body>
+</html>

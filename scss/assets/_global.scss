@@ -1,0 +1,144 @@
+// import variables styles
+@use "./variables" as *;
+
+* {
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+  transition: var(--mainTransition, 0.3s);
+  -webkit-transition: var(--mainTransition, 0.3s);
+  -moz-transition: var(--mainTransition, 0.3s);
+  -ms-transition: var(--mainTransition, 0.3s);
+  -o-transition: var(--mainTransition, 0.3s);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+input[type="email"] {
+  text-transform: initial !important;
+}
+
+.f-icon {
+  transition: var(--zeroTransition, 0s);
+  -webkit-transition: var(--zeroTransition, 0s);
+  -moz-transition: var(--zeroTransition, 0s);
+  -ms-transition: var(--zeroTransition, 0s);
+  -o-transition: var(--zeroTransition, 0s);
+}
+
+p {
+  line-height: 1.5;
+  color: var(--thirdTextColor, #767676);
+  // color: #767676;
+}
+
+.container {
+  padding: var(--topDownPadding, 50px) var(--mainPadding, 10px);
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+  @media (min-width: 576px) {
+    width: 540px;
+  }
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+  @media (min-width: 1400px) {
+    width: 1320px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--secTextColor, #212529);
+  &:hover {
+    color: var(--mainColor);
+  }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.sec-head {
+  padding-bottom: var(--topDownPadding, 50px);
+  h2 {
+    color: var(--mainColor);
+    // color: #ff9800;
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+
+.go-up {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: var(--mainColor);
+    // background-color: #ff9800;
+    &:hover {
+      background-color: var(--mainBackgroundColor, #fff);
+      // background-color: #fff;
+      .f-icon {
+        color: var(--mainColor);
+        // color: #ff9800;
+      }
+    }
+    .f-icon {
+      font-size: 1.3rem;
+      color: var(--whiteColor, #fff);
+      // color: #fff;
+    }
+  }
+}
+
+// animations
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}

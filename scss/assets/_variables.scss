@@ -1,0 +1,50 @@
+// light theme colors
+body[data-theme="light"] {
+  --whiteColor: #fff;
+  --blackColor: #212529;
+  --mainTextColor: #fff;
+  --secTextColor: #212529;
+  // --thirdTextColor: #767676;
+  --mainBackgroundColor: #fff;
+  --secBackgroundColor: #eee;
+  --inputBackgroundColor: #f9f9f9;
+  --whiteTransparentColor: #eeeeeea1;
+  --inputTransparentBGColor: #dadada30;
+}
+
+// dark theme colors
+body[data-theme="dark"] {
+  --whiteColor: #212529;
+  --blackColor: #fff;
+  --mainTextColor: #efefef;
+  --secTextColor: #212529;
+  // --thirdTextColor: #767676;
+  --mainBackgroundColor: #222;
+  --secBackgroundColor: #1d1d1d;
+  --inputBackgroundColor: #323234;
+  --whiteTransparentColor: #000000a1;
+  --inputTransparentBGColor: #22222257;
+}
+
+// other variables
+:root {
+  // --mainColor: #ff9800;
+  --orangeColor: #ff9800;
+  --pinkColor: #e91e63;
+  --turquazColor: #009688;
+  --blueColor: #03a9f4;
+  --greenColor: #4caf50;
+  --dangerColor: #f44336;
+  --successInputColor: #1ad922;
+  --grayColor: #707070;
+  --thirdTextColor: #767676;
+  --thirdBackgroundColor: #333;
+  --darkWhiteColor: #eee;
+  --transparentBlackColor: rgba(0, 0, 0, 0.5);
+  --mainPadding: 10px;
+  --secPadding: 20px;
+  --topDownPadding: 50px;
+  --mainBorderRadius: 5px;
+  --mainTransition: 0.3s;
+  --zeroTransition: 0s;
+}
