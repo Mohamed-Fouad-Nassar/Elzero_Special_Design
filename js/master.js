@@ -137,13 +137,13 @@ let landingSec = document.getElementById("landing");
 let bgInterval;
 // function to change the background image
 let randomBackgrounds = () => {
-  landingSec.style.backgroundImage = `url("../data/images/01.jpg")`;
+  landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   let randomImages = [
-    "../data/images/01.jpg",
-    "../data/images/02.jpg",
-    "../data/images/03.jpg",
-    "../data/images/04.jpg",
-    "../data/images/05.jpg",
+    "./data/images/01.jpg",
+    "./data/images/02.jpg",
+    "./data/images/03.jpg",
+    "./data/images/04.jpg",
+    "./data/images/05.jpg",
   ];
   // if (true) {
   bgInterval = setInterval(() => {
@@ -179,7 +179,7 @@ randomBackgroundList.forEach((option) => {
 // get theme from localStorage or put default random background options
 if (window.localStorage.getItem("randomBG") === "true") {
   clearInterval(bgInterval);
-  // landingSec.style.backgroundImage = `url("../data/images/01.jpg")`;
+  // landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   randomBackgrounds();
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "true") e.classList.add("active");
@@ -189,13 +189,13 @@ if (window.localStorage.getItem("randomBG") === "true") {
   // if (window.localStorage.getItem("randomURL")) {
   landingSec.style.backgroundImage = window.localStorage.getItem("randomURL");
   // } else {
-  //   landingSec.style.backgroundImage = `url("../data/images/01.jpg")`;
+  //   landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   // }
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "false") e.classList.add("active");
   });
 } else {
-  // landingSec.style.backgroundImage = `url("../data/images/01.jpg")`;
+  // landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   window.localStorage.setItem("randomBG", "true");
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "true") e.classList.add("active");
