@@ -1,14 +1,3 @@
-// header section scripts
-let header = document.getElementsByTagName("header")[0];
-// add class scroll to header with scrolling
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset === 0) header.classList.remove("scroll");
-  else header.classList.add("scroll");
-});
-// add class scroll to header without scrolling ex-reload the page
-if (window.pageYOffset === 0) header.classList.remove("scroll");
-else header.classList.add("scroll");
-////////////////////////////////////////////////////////////////
 // nav section scripts
 let navShowBtn = document.getElementById("navShowBtn");
 let navHideBtn = document.getElementById("navHideBtn");
@@ -36,6 +25,9 @@ document.addEventListener("click", (e) => {
 });
 ////////////////////////////////////////////////////////////////
 // aside section scripts
+let removeAllActive = function (elements) {
+  elements.forEach((ele) => ele.classList.remove("active"));
+};
 // first ==> show and hide aside section
 let asideShowHideBtn = document.getElementById("sideShowHideBtn");
 let aside = document.getElementsByTagName("aside")[0];
@@ -57,9 +49,7 @@ let colorsList = document.querySelectorAll("aside .colors-setting ul li");
 colorsList.forEach((color) => {
   color.addEventListener("click", (e) => {
     // remove active class from each color option
-    colorsList.forEach((ele) => {
-      ele.classList.remove("active");
-    });
+    removeAllActive(colorsList);
     // add active class to target color option
     e.target.classList.add("active");
     // add color to the local storage
@@ -73,7 +63,6 @@ colorsList.forEach((color) => {
 });
 // get main color from local storage or put the default main color
 if (window.localStorage.getItem("mainColor")) {
-  // console.log(window.localStorage.getItem("mainColor"));
   document.documentElement.style.setProperty(
     "--mainColor",
     window.localStorage.getItem("mainColor")
@@ -97,9 +86,7 @@ themeList.forEach((theme) => {
     if (e.target.classList.contains("active")) {
     } else {
       // remove class active from all list elements
-      themeList.forEach((theme) => {
-        theme.classList.remove("active");
-      });
+      removeAllActive(themeList);
       // add class active to target elements
       e.target.classList.add("active");
       window.localStorage.setItem("theme", e.target.dataset.theme);
@@ -157,9 +144,7 @@ randomBackgroundList.forEach((option) => {
     if (e.target.classList.contains("active")) {
     } else {
       // remove class active from all list elements
-      randomBackgroundList.forEach((option) => {
-        option.classList.remove("active");
-      });
+      removeAllActive(randomBackgroundList);
       // add class active to target elements
       e.target.classList.add("active");
       window.localStorage.setItem("randomBG", e.target.dataset.random);
@@ -179,23 +164,17 @@ randomBackgroundList.forEach((option) => {
 // get theme from localStorage or put default random background options
 if (window.localStorage.getItem("randomBG") === "true") {
   clearInterval(bgInterval);
-  // landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   randomBackgrounds();
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "true") e.classList.add("active");
   });
 } else if (window.localStorage.getItem("randomBG") === "false") {
   clearInterval(bgInterval);
-  // if (window.localStorage.getItem("randomURL")) {
   landingSec.style.backgroundImage = window.localStorage.getItem("randomURL");
-  // } else {
-  //   landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
-  // }
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "false") e.classList.add("active");
   });
 } else {
-  // landingSec.style.backgroundImage = `url("./data/images/01.jpg")`;
   window.localStorage.setItem("randomBG", "true");
   randomBackgroundList.forEach((e) => {
     if (e.dataset.random === "true") e.classList.add("active");
@@ -212,9 +191,7 @@ bulletList.forEach((option) => {
     if (e.target.classList.contains("active")) {
     } else {
       // remove class active from all list elements
-      bulletList.forEach((option) => {
-        option.classList.remove("active");
-      });
+      removeAllActive(bulletList);
       // add class active to target elements
       e.target.classList.add("active");
       window.localStorage.setItem("bullets", e.target.dataset.bullets);
@@ -246,7 +223,104 @@ if (window.localStorage.getItem("bullets") === "true") {
   });
 }
 ////////////////////////////////
-// sixth ==> reset options section
+// sixth ==> header style options section scripts
+let headerStyleList = document.querySelectorAll("aside .header-setting ul li");
+let header = document.getElementsByTagName("header")[0];
+// fixed header style function
+let fixedHeader = () => {
+  header.classList.remove("normal");
+  if (window.pageYOffset === 0) header.classList.remove("scroll");
+  else header.classList.add("scroll");
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset === 0) header.classList.remove("scroll");
+    else header.classList.add("scroll");
+    header.classList.remove("scroll-up");
+    header.classList.remove("scroll-down");
+  });
+};
+// relative header style function
+let relativeHeader = (position) => {
+  header.classList.remove("normal");
+  window.removeEventListener("scroll", () => {}, false);
+  if (window.pageYOffset === 0) header.classList.remove("scroll");
+  else header.classList.add("scroll");
+  window.addEventListener("scroll", () => {
+    const scrollPosition =
+      document.documentElement.scrollTop || window.pageYOffset;
+    if (window.pageYOffset === 0) header.classList.remove("scroll");
+    else {
+      header.classList.add("scroll");
+      if (scrollPosition > position) {
+        header.classList.add("scroll-down");
+        header.classList.remove("scroll-up");
+      } else if (scrollPosition < position) {
+        header.classList.remove("scroll-down");
+        header.classList.add("scroll-up");
+      }
+      position = scrollPosition >= 0 ? scrollPosition : 0;
+    }
+  });
+};
+// normal header style function
+let normalHeader = () => {
+  header.classList.add("normal");
+  header.classList.remove("scroll");
+  header.style.backgroundColor = "transparent !important";
+  window.addEventListener("scroll", () => {
+    header.classList.remove("scroll");
+    header.classList.remove("scroll-up");
+    header.classList.remove("scroll-down");
+  });
+};
+// change on click
+headerStyleList.forEach((option) => {
+  option.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) {
+    } else {
+      // remove active class from each li
+      removeAllActive(headerStyleList);
+      // add active class to target li
+      e.target.classList.add("active");
+      // add option to the local storage
+      window.localStorage.setItem("headerStyle", e.target.dataset.header);
+      if (e.target.dataset.header === "normal") {
+        normalHeader();
+      } else if (e.target.dataset.header === "fixed") {
+        fixedHeader();
+      } else {
+        // in the situation of e.target.dataset.header === "relative"
+        let lastPosition =
+          document.documentElement.scrollTop || window.pageYOffset;
+        relativeHeader(lastPosition);
+      }
+    }
+  });
+});
+// change based on local storage
+if (window.localStorage.getItem("headerStyle") === "normal") {
+  normalHeader();
+  headerStyleList.forEach((option) => {
+    if (option.dataset.header === "normal") option.classList.add("active");
+  });
+} else if (window.localStorage.getItem("headerStyle") === "fixed") {
+  fixedHeader();
+  headerStyleList.forEach((option) => {
+    if (option.dataset.header === "fixed") option.classList.add("active");
+  });
+} else if (
+  !window.localStorage.getItem("headerStyle") ||
+  window.localStorage.getItem("headerStyle") === "relative"
+) {
+  if (!window.localStorage.getItem("headerStyle"))
+    window.localStorage.setItem("headerStyle", "relative");
+  headerStyleList.forEach((option) => {
+    if (option.dataset.header === "relative") option.classList.add("active");
+  });
+  let lastPosition = document.documentElement.scrollTop || window.pageYOffset;
+  relativeHeader(lastPosition);
+}
+////////////////////////////////
+// seventh ==> reset options section
 let resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", () => {
   window.localStorage.clear();
@@ -266,20 +340,25 @@ window.addEventListener("scroll", () => {
 ////////////////////////////////////////////////////////////////
 // gallery section scripts
 let galleryImgs = document.querySelectorAll(".gallery .sec-body img");
+// function to remove the pop-up from DOM elements
+let deletePopUp = function (e) {
+  e.classList.remove("active");
+  setTimeout(() => {
+    e.remove();
+  }, 300);
+};
+// loop through gallery
 galleryImgs.forEach((img) => {
   img.addEventListener("click", (e) => {
     // create pop-up
     let popUp = document.createElement("div");
     popUp.classList.add("pop-up");
-
     // create pop-up overlay
     let overlay = document.createElement("div");
     overlay.classList.add("overlay");
-
     // create image card
     let imgCard = document.createElement("div");
     imgCard.classList.add("image-card");
-
     // create title of image if it found
     let imgTitle = document.createElement("span");
     if (e.target.alt !== null || e.target.alt !== "") {
@@ -287,14 +366,12 @@ galleryImgs.forEach((img) => {
     }
     // append title to image card
     imgCard.append(imgTitle);
-
     // create cancel button
     let cancelBtn = document.createElement("div");
     cancelBtn.classList.add("cancel");
     cancelBtn.innerHTML = `<i class="f-icon fa-solid fa-xmark"></i>`;
     // append cancel button to image card
     imgCard.prepend(cancelBtn);
-
     // create image
     let popUpImg = document.createElement("img");
     popUpImg.setAttribute("src", e.target.src);
@@ -303,11 +380,9 @@ galleryImgs.forEach((img) => {
     }
     // append image to image card
     imgCard.append(popUpImg);
-
     // append elements to pop-up
     popUp.prepend(overlay);
     popUp.append(imgCard);
-
     // append pop-up to body
     document.body.append(popUp);
     // add active class to pop-up
@@ -315,66 +390,77 @@ galleryImgs.forEach((img) => {
       popUp.classList.add("active");
     }, 1);
     // e.stopPropagation();
-
     // close pop-up
     document.addEventListener("click", (ele) => {
       if (ele.target === overlay) {
-        popUp.classList.remove("active");
+        deletePopUp(popUp);
       }
     });
     cancelBtn.addEventListener("click", () => {
-      popUp.classList.remove("active");
+      deletePopUp(popUp);
     });
   });
 });
 ////////////////////////////////////////////////////////////////
 // form validation scripts
-let mailValid = function isEmail(value) {
-  let regEx =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (value.match(regEx)) return true;
+// function to check valid
+function checkValid(inputValue, regEx) {
+  if (inputValue.match(regEx)) return true;
   else return false;
-};
-let nameValid = function isName(value) {
-  let regEx = /^[a-zA-Z ]{2,30}$/;
-  if (value.match(regEx)) return true;
-  else return false;
-};
-let phoneValid = function isPhoneNumber(value) {
-  let regEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[ 0-9]{3}[-\s\.]?[ 0-9]{4,6}$/im;
-  if (value.match(regEx)) return true;
-  else return false;
-};
+}
+// regular expressions
+let emailRegEx =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let nameRegEx = /^[a-zA-Z ]{2,30}$/;
+let phoneRegEx =
+  /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[ 0-9]{3}[-\s\.]?[ 0-9]{4,6}$/im;
+// // functions
+// let mailValid = function isEmail(value) {
+//   let regEx =
+//     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   if (value.match(regEx)) return true;
+//   else return false;
+// };
+// let nameValid = function isName(value) {
+//   let regEx = /^[a-zA-Z ]{2,30}$/;
+//   if (value.match(regEx)) return true;
+//   else return false;
+// };
+// let phoneValid = function isPhoneNumber(value) {
+//   let regEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[ 0-9]{3}[-\s\.]?[ 0-9]{4,6}$/im;
+//   if (value.match(regEx)) return true;
+//   else return false;
+// };
 let contactSubmit = document.getElementById("submitBtn");
 let contactForm = document.querySelector(".contact .sec-body form");
-
+// get felids
 let name = document.getElementById("name");
 let email = document.getElementById("email");
 let phone = document.getElementById("phone");
-
+// check in submit
 contactForm.addEventListener("submit", (e) => {
   if (
-    phoneValid(phone.value) &&
-    nameValid(name.value) &&
-    mailValid(email.value)
+    checkValid(phone.value, phoneRegEx) &&
+    checkValid(name.value, nameRegEx) &&
+    checkValid(email.value, emailRegEx)
   ) {
   } else {
     e.preventDefault();
-    if (phoneValid(phone.value) === false) {
+    if (checkValid(phone.value, phoneRegEx) === false) {
       phone.closest(".field").classList.remove("success");
       phone.closest(".field").classList.add("error");
     } else {
       phone.closest(".field").classList.remove("error");
       phone.closest(".field").classList.add("success");
     }
-    if (nameValid(name.value) === false) {
+    if (checkValid(name.value, nameRegEx) === false) {
       name.closest(".field").classList.remove("success");
       name.closest(".field").classList.add("error");
     } else {
       name.closest(".field").classList.remove("error");
       name.closest(".field").classList.add("success");
     }
-    if (mailValid(email.value) === false) {
+    if (checkValid(email.value, emailRegEx) === false) {
       email.closest(".field").classList.remove("success");
       email.closest(".field").classList.add("error");
     } else {

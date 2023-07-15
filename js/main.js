@@ -344,3 +344,26 @@ window.addEventListener("scroll", () => {
 goUpBtn.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+
+// test header
+
+// let header = document.getElementsByTagName("header")[0];
+// let lastPosition = document.documentElement.scrollTop || window.pageYOffset;
+// window.addEventListener("scroll", () => {
+//   const scrollPosition =
+//     document.documentElement.scrollTop || window.pageYOffset;
+//   if (window.pageYOffset === 0) header.classList.remove("scroll");
+//   else {
+//     header.classList.add("scroll");
+//     if (scrollPosition > lastPosition) {
+//       console.log("down");
+//       header.classList.add("scroll-down");
+//       header.classList.remove("scroll-up");
+//     } else if (scrollPosition < lastPosition) {
+//       console.log("up");
+//       header.classList.remove("scroll-down");
+//       header.classList.add("scroll-up");
+//     }
+//     lastPosition = scrollPosition >= 0 ? scrollPosition : 0;
+//   }
+// });

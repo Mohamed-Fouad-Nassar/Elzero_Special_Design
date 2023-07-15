@@ -27,7 +27,7 @@
   -o-transition: var(--mainTransition, 0.3s);
   z-index: 1000;
   &.active {
-    left: 220px;
+    left: 250px;
     .f-icon {
       animation: rotate 2.5s linear infinite;
       -webkit-animation: rotate 2.5s linear infinite;
@@ -311,9 +311,24 @@ main {
             display: none;
             &.active {
               display: block;
+              margin-top: 20px;
               &::before,
               &::after {
-                content: initial;
+                left: 50%;
+                right: initial;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+              }
+              &::after {
+                top: -35px;
+              }
+              &::before {
+                top: -18px;
+                border-color: transparent transparent
+                  var(--mainBackgroundColor, #fff) transparent;
               }
             }
           }
@@ -359,8 +374,6 @@ main {
           }
         }
         .right {
-          // justify-self: flex-end;
-          // margin-left: 50px;
           &::before {
             top: 15px;
             left: -20px;
@@ -374,7 +387,6 @@ main {
           }
         }
         .left {
-          // justify-self: flex-end;
           &::before {
             top: 15px;
             right: -20px;
